@@ -35,6 +35,7 @@ class SearchVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.usernameTextField.text = ""
     }
     
     @objc private func pushFollowerLisrVC() {
