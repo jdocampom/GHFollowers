@@ -1,0 +1,16 @@
+/* 
+  English.strings
+  GHFollowers
+
+  Created by Juan Diego Ocampo on 13/08/2022.
+*/
+
+"SEARCH" = "Search";
+"FAVORITES" = "Favorites";
+"ENTER_USERNAME" = "Enter a username";
+"GET_FOLLOWERS" = "Get Followers";
+"OK" = "Ok";
+"SOMETHING_WENT_WRONG" = "Something went wrong...";
+"UNABLE_TO_COMPLETE_REQUEST" = "Unable to complete request.";
+"EMPTY_USERNAME_TITLE" = "Empty Username";
+"EMPTY_USERNAME_MESSAGE" = "Please enter a username. We need to know who to look for 😀.";
