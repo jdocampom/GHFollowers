@@ -14,3 +14,10 @@
 "UNABLE_TO_COMPLETE_REQUEST" = "Unable to complete request.";
 "EMPTY_USERNAME_TITLE" = "Empty Username";
 "EMPTY_USERNAME_MESSAGE" = "Please enter a username. We need to know who to look for 😀.";
+"ERROR" = "Error";
+
+// ERRORS
+"INVALID_USERNAME" = "This username created an invalid request. Please try again";
+"UNABLE_TO_COMPLETE" = "Unable to complete request. Please check your internet connection.";
+"INVALID_RESPONSE" = "Received bad response from server. Please try again.";
+"INVALID_DATA" = "Received corrupted data from server. Please try again.";
