@@ -15,6 +15,10 @@
 "EMPTY_USERNAME_TITLE" = "Empty Username";
 "EMPTY_USERNAME_MESSAGE" = "Please enter a username. We need to know who to look for 😀.";
 "ERROR" = "Error";
+"EMPTY_FOLLOWERS" = "This user doesn't have any followers. Go follow them 😀";
+"SEARCH_USERNAME" = "Search Username";
+"NO_LOCATION" = "No Location";
+"NO_BIO" = "No Bio";
 
 // ERRORS
 "INVALID_USERNAME" = "This username created an invalid request. Please try again";

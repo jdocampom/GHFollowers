@@ -33,6 +33,7 @@ class GFTextField: UITextField {
         self.autocorrectionType = .no
         self.placeholder = NSLocalizedString("ENTER_USERNAME", comment: "")
         self.returnKeyType = .go
+        self.autocapitalizationType = .none
     }
 
 }
