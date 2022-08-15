@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class UIHelpers {
+final class UIHelper {
     
-    static func createThreeColumnFlowLayout(from view: UIView) -> UICollectionViewFlowLayout {
+    static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
         let padding = CGFloat(12)
         let minimumItemSpacing = CGFloat(10)

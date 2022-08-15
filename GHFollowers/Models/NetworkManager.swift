@@ -5,13 +5,14 @@
 //  Created by Juan Diego Ocampo on 14/08/2022.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkManager {
     
     static let shared = NetworkManager()
     
     private let baseURL = "https://api.github.com"
+    public let cache = NSCache<NSString, UIImage>()
     
     private init () {}
     
