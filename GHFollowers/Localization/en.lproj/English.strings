@@ -19,6 +19,14 @@
 "SEARCH_USERNAME" = "Search Username";
 "NO_LOCATION" = "No Location";
 "NO_BIO" = "No Bio";
+"PUBLIC_REPOS" = "Public Repos";
+"PUBLIC_GISTS" = "Public Gists";
+"FOLLOWERS" = "Followers";
+"FOLLOWING" = "Following";
+"GITHUB_PROFILE" = "GitHub Profile";
+"GET_FOLLOWERS" = "Get Followers";
+"JOINED_ON" = "Joined on";
+"UNKNOWN_SIGN_UP_DATE" = "Unknown Sign Up Date";
 
 // ERRORS
 "INVALID_USERNAME" = "This username created an invalid request. Please try again";

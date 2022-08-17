@@ -12,4 +12,6 @@ enum GFError: String, Error {
     case unableToComplete = "UNABLE_TO_COMPLETE";
     case invalidResponse = "INVALID_RESPONSE"
     case invalidData = "INVALID_DATA"
+    case unableToFavorite = "ERROR_MARKING_USER_AS_FAVORITE"
+    case alreadyInFavorites = "USER_IS_ALREADY_IN_FAVORITES"
 }
