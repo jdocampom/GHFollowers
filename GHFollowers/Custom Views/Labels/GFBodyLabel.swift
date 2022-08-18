@@ -2,7 +2,8 @@
 //  GFBodyLabel.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 14/08/2022.
+//  Created by Sean Allen on 12/30/19.
+//  Copyright © 2019 Sean Allen. All rights reserved.
 //
 
 import UIKit
@@ -11,26 +12,28 @@ class GFBodyLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configure()
+        configure()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment) {
-        super.init(frame: .zero)
+    
+    convenience init(textAlignment: NSTextAlignment) {
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.configure()
     }
     
+    
     private func configure() {
-        self.textColor = .secondaryLabel
-        self.font = UIFont.preferredFont(forTextStyle: .body)
-        self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.75
-        self.lineBreakMode = .byWordWrapping
-        self.translatesAutoresizingMaskIntoConstraints = false
+        textColor                           = .secondaryLabel
+        font                                = UIFont.preferredFont(forTextStyle: .body)
+        adjustsFontForContentSizeCategory   = true
+        adjustsFontSizeToFitWidth           = true
+        minimumScaleFactor                  = 0.75
+        lineBreakMode                       = .byWordWrapping
+        translatesAutoresizingMaskIntoConstraints = false
     }
-
 }

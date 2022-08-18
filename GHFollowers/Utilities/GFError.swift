@@ -2,16 +2,18 @@
 //  GFError.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 14/08/2022.
+//  Created by Sean Allen on 1/11/20.
+//  Copyright © 2020 Sean Allen. All rights reserved.
 //
 
 import Foundation
 
 enum GFError: String, Error {
-    case invalidUsername = "INVALID_USERNAME"
-    case unableToComplete = "UNABLE_TO_COMPLETE";
-    case invalidResponse = "INVALID_RESPONSE"
-    case invalidData = "INVALID_DATA"
-    case unableToFavorite = "ERROR_MARKING_USER_AS_FAVORITE"
-    case alreadyInFavorites = "USER_IS_ALREADY_IN_FAVORITES"
+    
+    case invalidUsername    = "This username created an invalid request. Please try again."
+    case unableToComplete   = "Unable to complete your request. Please check your internet connection"
+    case invalidResponse    = "Invalid response from the server. Please try again."
+    case invalidData        = "The data received from the server was invalid. Please try again."
+    case unableToFavorite   = "There was an error favoriting this user. Please try again."
+    case alreadyInFavorites = "You've already favorited this user. You must REALLY like them!"
 }

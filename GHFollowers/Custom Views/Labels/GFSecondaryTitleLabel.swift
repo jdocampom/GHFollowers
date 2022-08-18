@@ -2,7 +2,8 @@
 //  GFSecondaryTitleLabel.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 15/08/2022.
+//  Created by Sean Allen on 1/22/20.
+//  Copyright © 2020 Sean Allen. All rights reserved.
 //
 
 import UIKit
@@ -14,23 +15,23 @@ class GFSecondaryTitleLabel: UILabel {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(fontSize: CGFloat) {
-        super.init(frame: .zero)
+    
+    convenience init(fontSize: CGFloat) {
+        self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
-        configure()
     }
     
+    
     private func configure() {
-        textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.90
-        lineBreakMode = .byTruncatingTail
+        textColor                   = .secondaryLabel
+        adjustsFontSizeToFitWidth   = true
+        minimumScaleFactor          = 0.90
+        lineBreakMode               = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
-
-
 }

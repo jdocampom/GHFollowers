@@ -2,7 +2,8 @@
 //  AppDelegate.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 13/08/2022.
+//  Created by Sean Allen on 12/27/19.
+//  Copyright © 2019 Sean Allen. All rights reserved.
 //
 
 import UIKit
@@ -10,9 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        UserDefaults.standard.synchronize()
         return true
     }
 
@@ -30,4 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+
 }
+

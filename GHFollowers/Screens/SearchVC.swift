@@ -2,95 +2,101 @@
 //  SearchVC.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 13/08/2022.
+//  Created by Sean Allen on 12/27/19.
+//  Copyright © 2019 Sean Allen. All rights reserved.
 //
 
 import UIKit
 
 class SearchVC: UIViewController {
     
-    private let logoImageView = UIImageView()
-    private let usernameTextField = GFTextField()
-    private let getFollowersButton = GFButton(backgroundColor: .systemGreen, title: "GET_FOLLOWERS")
+    let logoImageView       = UIImageView()
+    let usernameTextField   = GFTextField()
+    let callToActionButton  = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
     
-    private var isUsernameValid: Bool {
-        guard let text = self.usernameTextField.text else { return false }
-        return !text.isEmpty
-    }
+    var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
-        self.hideKeyboardWhenTappedAround()
-        self.configureLogoImageView()
-        self.configureUsernameTextField()
-        self.configureGetFollowersButton()
+        view.backgroundColor = .systemBackground
+        view.addSubviews(logoImageView, usernameTextField, callToActionButton)
+        configureLogoImageView()
+        configureTextField()
+        configureCallToActionButton()
+        createDismissKeyboardTapGesture()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.usernameTextField.text = ""
+    
+    func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
     
-    @objc private func pushFollowerLisrVC() {
-        guard isUsernameValid else {
-            self.presentGFAlertOnMainThread(title: "EMPTY_USERNAME_TITLE", message: "EMPTY_USERNAME_MESSAGE", buttonTitle: "OK")
+    
+    @objc func pushFollowerListVC() {
+        guard isUsernameEntered else {
+            presentGFAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
             return
         }
-        let followerListVC = FollowerListVC()
-        followerListVC.username = self.usernameTextField.text
-        followerListVC.title = self.usernameTextField.text
-        self.navigationController?.pushViewController(followerListVC, animated: true)
+        
+        usernameTextField.resignFirstResponder()
+        
+        let followerListVC = FollowerListVC(username: usernameTextField.text!)
+        navigationController?.pushViewController(followerListVC, animated: true)
     }
     
-    private func configureLogoImageView() {
-        self.view.addSubview(self.logoImageView)
-        self.logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.logoImageView.image = UIImage(named: "gh-logo")!
+    
+    func configureLogoImageView() {
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = Images.ghLogo
+        
+        let topConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 20 : 80
+        
         NSLayoutConstraint.activate([
-            self.logoImageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 80),
-            self.logoImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.logoImageView.heightAnchor.constraint(equalToConstant: 200),
-            self.logoImageView.widthAnchor.constraint(equalToConstant: 200),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstraintConstant),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
     
-    private func configureUsernameTextField() {
-        self.view.addSubview(self.usernameTextField)
-        self.usernameTextField.delegate = self
+    
+    func configureTextField() {
+        usernameTextField.delegate = self
+        
         NSLayoutConstraint.activate([
-            self.usernameTextField.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor, constant: 48),
-            self.usernameTextField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-            self.usernameTextField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
-            self.usernameTextField.heightAnchor.constraint(equalToConstant: 44),
+            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    private func configureGetFollowersButton() {
-        self.view.addSubview(self.getFollowersButton)
-        self.getFollowersButton.addTarget(self, action: #selector(self.pushFollowerLisrVC), for: .touchUpInside)
+    
+    func configureCallToActionButton() {
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
-            self.getFollowersButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            self.getFollowersButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50),
-            self.getFollowersButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50),
-            self.getFollowersButton.heightAnchor.constraint(equalToConstant: 44),
+            callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-
 }
 
+
 extension SearchVC: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.usernameTextField.resignFirstResponder()
-        self.pushFollowerLisrVC()
+        pushFollowerListVC()
         return true
     }
-    
 }

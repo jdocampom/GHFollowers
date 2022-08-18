@@ -2,17 +2,17 @@
 //  Date+Ext.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 15/08/2022.
+//  Created by Sean Allen on 1/24/20.
+//  Copyright © 2020 Sean Allen. All rights reserved.
 //
 
 import Foundation
 
 extension Date {
     
-    var formattedAsMonthYear: String {
+    func convertToMonthYearFormat() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM yyyy"
+        dateFormatter.dateFormat = "MMM yyyy"
         return dateFormatter.string(from: self)
     }
-    
 }

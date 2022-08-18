@@ -2,7 +2,8 @@
 //  User.swift
 //  GHFollowers
 //
-//  Created by Juan Diego Ocampo on 14/08/2022.
+//  Created by Sean Allen on 1/1/20.
+//  Copyright © 2020 Sean Allen. All rights reserved.
 //
 
 import Foundation
@@ -18,5 +19,5 @@ struct User: Codable {
     let htmlUrl: String
     let following: Int
     let followers: Int
-    let createdAt: String
+    let createdAt: Date
 }
